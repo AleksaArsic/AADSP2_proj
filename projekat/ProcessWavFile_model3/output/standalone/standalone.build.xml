@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project basedir="D:/AADSP2_projekat/AADSP2/ProcessWavFile_model3" name="WavTemplate">
+	<target description="Linking files..." name="clink">
+		<exec executable="D:/CirrusDSP/bin/clink" failonerror="true">
+			<arg value="-oD:/AADSP2_projekat/AADSP2/ProcessWavFile_model3/output/standalone/WavTemplate.img"/>
+			<arg value="-fD:/CirrusDSP/crystal32/memory_maps/v00.mem.xml"/>
+			<arg value="D:/AADSP2_projekat/AADSP2/ProcessWavFile_model3/output/standalone/src/main.O"/>
+			<arg value="--output_type=RAM"/>
+			<arg value="--overlay_type=standalone"/>
+			<arg value="-lD:/CirrusDSP/lib/"/>
+			<arg value="-lD:/CirrusDSP/lib/dsplib"/>
+			<arg value="-lD:/CirrusDSP/lib/dsplib/crystal32/"/>
+		</exec>
+	</target>
+	<target depends="clink" description="Creating .uld file..." name="lnkuld">
+		<exec executable="D:/CirrusDSP/bin/lnkuld" failonerror="true">
+			<arg value="-ja"/>
+			<arg value="D:/AADSP2_projekat/AADSP2/ProcessWavFile_model3/output/standalone/WavTemplate.img"/>
+			<arg value="D:/AADSP2_projekat/AADSP2/ProcessWavFile_model3/output/standalone/WavTemplate.uld"/>
+		</exec>
+	</target>
+</project>
